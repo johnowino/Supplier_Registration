@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="970,2451" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="674,2794" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -106,7 +106,7 @@
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="642,2386" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="642,2729" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtExcel" />
     </Sequence.Variables>
@@ -115,32 +115,38 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtExcel]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="580,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="C:\Users\John\Downloads\suppliers (1).xlsx" />
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: UiPath Demo App" sap:VirtualizedContainerService.HintSize="580,2147" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="f01f71d6-9ace-494e-882b-57253e9f76be" Version="V2">
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" sap2010:Annotation.AnnotationText="Reads the data in the excel sheet and copies it to a Data Table in UiPath for further processing" DataTable="[dtExcel]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="580,130" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="C:\Users\John\Downloads\suppliers (1).xlsx">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ReadRange>
+    <uix:NApplicationCard sap2010:Annotation.AnnotationText="Use chrome browser to open the site where supplier information is to be loaded" AttachMode="ByInstance" DisplayName="Use Browser Chrome: UiPath Demo App" sap:VirtualizedContainerService.HintSize="580,2448" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="f01f71d6-9ace-494e-882b-57253e9f76be" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="546,1930" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="546,2200" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtExcel]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="484,1815" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Reads the rows in the data table one at a time. The fields in each column are then used to populate the fields in the web page of supplier registration form." DataTable="[dtExcel]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="484,2085" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,1698" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,1926" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'New Supplier'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Version="V3">
+                    <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="This is a click on the new supplier button" ClickType="Single" DisplayName="Click 'New Supplier'" sap:VirtualizedContainerService.HintSize="388,188" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://www.rpasamples.com/suppliers" CvElementArea="1009, 389, 114, 39" CvTextArea="1020, 401, 92, 18" CvTextArgument="New Supplier" CvType="Button" DesignTimeRectangle="1016, 399, 100, 20" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'New Supplier'" FullSelectorArgument="&lt;webctrl parentid='controlWrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='controlWrapper' tag='SPAN' type='' class='sc-jzJRlG hxyKHp' aaname='New Supplier' check:innerText='New Supplier' /&gt;" Guid="c6af4802-f19c-4753-a92d-67f5c7691d4e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAYCAYAAAAWPrhgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJzSURBVGhD7ZZNbsIwEIW5bQ/AdXIC7sAyV4iyY8kKZYFQJCTk+m/s8eQlcUuTWsgjfWp5GdvjeXbgcPi6qErBQLFSDlCslAMUK+UAxUo5QLFSDlCsZHJT54dSQ38Dz/4IKDKaq9LxVI3Qj/1Lqes90bbE1RFj06bMIgw5jWowxWzZBygyqDGyIXsaZGt4jOoYtLvqtNS1ad727HBjJFBkmOZ0vTkp6S3az6D/MgNRqEGmIPpLOjLIaiGioXM3INlo+9TKS51PlEO4piwdBrtuMr9fk43h+wgBxiznSIOwYWvju9bvSYccOwGKDCravW9jA6VBkybZhnuTxFj7+fHSxHxkeMDOZQIZmG+QiXgT3SH5Wc66QXLdtDYyBu8DAkVGMMj/T4unDTUbkYvSaaHnceNm7KBfm124ZdONTvHN8sFfedkGsc8WfoiyclYMsgcxzufgvcnZpwCKDG4QvwmJQVbHQY2MmzdFmjlcsdHA3FPlxvG53zMorrueIxssPoebLmNufAZQZCQGaciYxCBxEiEmxzbRmOFywxw54wW8me8ZFNddz1k2CNWRsoNB4bT3uvCwGff64a+dCXT9zYZpnP0uGlXDzc7ENtM347cGyXHrOcsG8TcMnyOyi0G+aBNsM05Li2tavllfnPlxEOZzZg9LRdsTLMz3r9Sg2Ry2th8zMYjnyDmyclYMCnPwt4H+Vah/tc3lrwJFBjKIFoKnjYW9Hez5pAEzGueov6uoUTzkbXXz+DB18ZtKz6+jq9uH3Fd2jg63Pm54UouOQdeBb2AGUPxAXPPTAyXJydkdKH4g1aDCqQZVtgGKlXKAYqUQLuobiytpUClKM2wAAAAASUVORK5CYII=" InformativeScreenshot="ee9b074c1844cb374475064ab7449559.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiPath Demo App' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -150,8 +156,13 @@
                           </uix:TargetAnchorable.Anchors>
                         </uix:TargetAnchorable>
                       </uix:NClick.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </uix:NClick>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Internal Name*'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Text="[CurrentRow(&quot;Internal Name&quot;).ToString]" Version="V3">
+                    <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="This types the internal name from the data table" ClickBeforeMode="Single" DisplayName="Type Into 'Internal Name*'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,249" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Text="[CurrentRow(&quot;Internal Name&quot;).ToString]" Version="V3">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable BrowserURL="https://www.rpasamples.com/suppliers" CvType="InputBox" DesignTimeRectangle="89, 273, 346, 30" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT TextField219'" FullSelectorArgument="&lt;webctrl id='TextField219' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='TextField219' tag='INPUT' type='text' class='ms-TextField-field field-146' aaname='Internal Name*' /&gt;" Guid="bedf5171-c75b-4f8d-b404-0334244f2d08" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAV4AAAAiCAYAAAAXvLEUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADRSURBVHhe7dSxDcMwAAPB7D+IO42kETSDAgqIgfQ2qzuADQf4zwag6oR3zrnHGPu6LjMze2FpbFp7hzfHWuscADwvjU1r44Q3NQbgXb/WCi9AifAClAkvQJnwApQJL0CZ8AKUCS9AmfAClAkvQJnwApQJL0CZ8AKUCS9AmfAClAkvQJnwApQJL0CZ8AKUCS9AmfAClAkvQJnwApQJL0CZ8AKUCS9AmfAClAkvQNlfeMcYe611DgCel8amtXHCO+c8R2psZmbPL41Na+/wAtCy9xes5i6j3FPCowAAAABJRU5ErkJggg==" InformativeScreenshot="268dfaa1536422bce8e63c988064b1dd.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiPath Demo App' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -161,19 +172,29 @@
                           </uix:TargetAnchorable.Anchors>
                         </uix:TargetAnchorable>
                       </uix:NTypeInto.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </uix:NTypeInto>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'External Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Text="[CurrentRow(&quot;External Name&quot;).ToString]" Version="V3">
+                    <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="This types the external name from the data table" ClickBeforeMode="Single" DisplayName="Type Into 'External Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,249" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Text="[CurrentRow(&quot;External Name&quot;).ToString]" Version="V3">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable BrowserURL="https://www.rpasamples.com/suppliers" CvType="InputBox" DesignTimeRectangle="459, 273, 346, 30" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT TextField222'" FullSelectorArgument="&lt;webctrl id='TextField222' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='TextField222' tag='INPUT' type='text' class='ms-TextField-field field-146' aaname='External Name' /&gt;" Guid="5445df4a-fdea-4589-a0cc-fc135909bdce" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAV4AAAAiCAYAAAAXvLEUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADRSURBVHhe7dSxDcMwAAPB7D+IO42kETSDAgqIgfQ2qzuADQf4zwag6oR3zrnHGPu6LjMze2FpbFp7hzfHWuscADwvjU1r44Q3NQbgXb/WCi9AifAClAkvQJnwApQJL0CZ8AKUCS9AmfAClAkvQJnwApQJL0CZ8AKUCS9AmfAClAkvQJnwApQJL0CZ8AKUCS9AmfAClAkvQJnwApQJL0CZ8AKUCS9AmfAClAkvQNlfeMcYe611DgCel8amtXHCO+c8R2psZmbPL41Na+/wAtCy9xes5i6j3FPCowAAAABJRU5ErkJggg==" InformativeScreenshot="9273f67a467b1afbe52df6b62c3d815a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiPath Demo App' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                               <uix:Target DesignTimeRectangle="456, 287, 358, 32" ElementType="Text" FriendlyName="'External Name'" FullSelectorArgument="&lt;webctrl id='TextFieldLabel224' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl id='TextFieldLabel224' tag='LABEL' type='' class='ms-Label root-152' aaname='External Name' check:innerText='External Name' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAWYAAAAgCAYAAAAhUNLTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC+SURBVHhe7dSxCcNAFAVB91+IMpWkElTDmTNCqWyQzAYz8OB+cOm+xmFZluMFwFO+aa0wA/yRMAPECDNAjDADxAgzQIwwA8QIM0CMMAPECDNAjDADxAgzQIwwA8QIM0CMMAPE/BTmdV3Hvu/HBcDdZmNna6+cYd627fNh1tzMzO7fbOxs7ZUzzAA0CDNAjDADxAgzQIwwA8QIM0CMMAPECDNAjDADxAgzQIwwA8QIM0CMMAPECDNAjDADpIzxBs0izC/TH/YKAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
                             </scg:List>
                           </uix:TargetAnchorable.Anchors>
                         </uix:TargetAnchorable>
                       </uix:NTypeInto.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </uix:NTypeInto>
-                    <uix:NSelectItem DisplayName="Select Item 'Industry'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="[CurrentRow(&quot;Industry&quot;).ToString]" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Version="V3">
+                    <uix:NSelectItem sap2010:Annotation.AnnotationText="This selects the industry from the pull down menu" DisplayName="Select Item 'Industry'" sap:VirtualizedContainerService.HintSize="388,188" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="[CurrentRow(&quot;Industry&quot;).ToString]" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Version="V3">
                       <uix:NSelectItem.Items>
                         <scg:List x:TypeArguments="x:String" Capacity="8">
                           <x:String>Banking</x:String>
@@ -195,8 +216,13 @@
                           </uix:TargetAnchorable.Anchors>
                         </uix:TargetAnchorable>
                       </uix:NSelectItem.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </uix:NSelectItem>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'City'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Text="[CurrentRow(&quot;City&quot;).ToString]" Version="V3">
+                    <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="This types the city from the data table" ClickBeforeMode="Single" DisplayName="Type Into 'City'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,249" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Text="[CurrentRow(&quot;City&quot;).ToString]" Version="V3">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable BrowserURL="https://www.rpasamples.com/suppliers" CvType="InputBox" DesignTimeRectangle="89, 891, 229, 30" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT TextField6560'" FullSelectorArgument="&lt;webctrl id='TextField6560' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='TextField6560' tag='INPUT' type='text' class='ms-TextField-field field-146' aaname='City' /&gt;" Guid="dec3970b-7244-4b6b-bab2-9b21b223eb6a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOkAAAAiCAYAAAC6GP6UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC1SURBVHhe7d2xCUJREEVBCxUxFbFItQ5t5cl+UBAL8AQzcJPNT7y7BaRtkd5v13U5n9bxsDezwKbH6fIT6Ryez8d2AP5vepwuxxbplAu0vLsUKUSJFOJECnEihTiRQpxIIU6kECdSiBMpxIkU4kQKcSKFOJFCnEghTqQQJ1KIEynEiRTiRApxIoU4kUKcSCFOpBAnUogTKcSJFOJECnFfkXrYBC0/D5u8PjRrbXr8en0IVK31Al5KfqwDcvvJAAAAAElFTkSuQmCC" InformativeScreenshot="8cff0d25fa794d87fdf9d9874890a960.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiPath Demo App' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -206,8 +232,13 @@
                           </uix:TargetAnchorable.Anchors>
                         </uix:TargetAnchorable>
                       </uix:NTypeInto.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </uix:NTypeInto>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'State'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,218" sap2010:WorkflowViewState.IdRef="NTypeInto_10" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Text="[CurrentRow(&quot;State&quot;).ToString]" Version="V3">
+                    <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="This types the state from the data table" ClickBeforeMode="Single" DisplayName="Type Into 'State'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,249" sap2010:WorkflowViewState.IdRef="NTypeInto_10" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Text="[CurrentRow(&quot;State&quot;).ToString]" Version="V3">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable BrowserURL="https://www.rpasamples.com/suppliers" CvType="InputBox" DesignTimeRectangle="336, 891, 229, 30" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT TextField6563'" FullSelectorArgument="&lt;webctrl id='TextField6563' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='TextField6563' tag='INPUT' type='text' class='ms-TextField-field field-146' aaname='State' /&gt;" Guid="69063632-ba93-4f77-9ea9-ee66009e0de5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOkAAAAiCAYAAAC6GP6UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC1SURBVHhe7d2xCUJREEVBCxUxFbFItQ5t5cl+UBAL8AQzcJPNT7y7BaRtkd5v13U5n9bxsDezwKbH6fIT6Ryez8d2AP5vepwuxxbplAu0vLsUKUSJFOJECnEihTiRQpxIIU6kECdSiBMpxIkU4kQKcSKFOJFCnEghTqQQJ1KIEynEiRTiRApxIoU4kUKcSCFOpBAnUogTKcSJFOJECnFfkXrYBC0/D5u8PjRrbXr8en0IVK31Al5KfqwDcvvJAAAAAElFTkSuQmCC" InformativeScreenshot="a10ecfc19461991be6529ed2a6adf6c0.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiPath Demo App' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -217,15 +248,30 @@
                           </uix:TargetAnchorable.Anchors>
                         </uix:TargetAnchorable>
                       </uix:NTypeInto.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </uix:NTypeInto>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Version="V3">
+                    <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="This is a click on the save button to save the supplier registration record" ClickType="Single" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="388,199" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f01f71d6-9ace-494e-882b-57253e9f76be" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://www.rpasamples.com/suppliers" CvElementArea="925, 898, 119, 35" CvTextArea="969, 910, 31, 13" CvTextArgument="Save" CvType="Button" DesignTimeRectangle="939, 907, 91, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Save'" FullSelectorArgument="&lt;webctrl id='id__267' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='id__267' tag='SPAN' type='' class='ms-Button-label label-178' aaname='Save' check:innerText='Save' /&gt;" Guid="d67a9368-cc29-4d7b-9fcb-15144129bb18" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAXCAYAAABtR5P0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE+SURBVGhD7ZY9CsMwDEZ72x6g18kJeoeOvULI1jFTyFBKIFDUyD9Edj46SiZI8Kj97CySbPdyub7IMQJKRwcoHR2gdHSA0tEBSkcHKB0doDTiNnxJxjxMcN9pgNKAbtyyPb6Fm+gxyPkJgVKdLdEfov6J1k4MlAYcO7+kvpJioVDRKvdc0xccX3rc5V5joDQhJo3jeAK2tXGhW5qHQnziPIxl0TjZaS0mfqUOrbUAlKa8qQ8lEEmruS8053U53uATlB9qOY5wgRvqfigbQHZ3cMX1wVEmPJ4WLlz2+0mq43iyjICyBWRH19dF1e1hna+e/Jv8XpRGgVKd8k5n/t3rYS6Tnzq+r5MdTovc1xhQGhD+7cgoHsb8DsSYx7Xs/Pw9eExjoUSAPWZA6egApaMDlI4OUDo6QOnoAKWjwIt+3F0BW46paXYAAAAASUVORK5CYII=" InformativeScreenshot="2cfe9357624cb8d758e13b09b362941b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='UiPath Demo App' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
                       </uix:NClick.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </uix:NClick>
                   </Sequence>
                 </ActivityAction>
               </ui:ForEachRow.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
             </ui:ForEachRow>
           </Sequence>
         </ActivityAction>
@@ -233,6 +279,11 @@
       <uix:NApplicationCard.TargetApp>
         <uix:TargetApp Area="1358, -8, 1296, 1000" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADBSURBVDhPzdOhCsJgFIbhFUEMYh2YzF6Fd2A1aTrR6DUYrUYtKhazdmU3YDAcELwEMcl8zzgzyGRuKx544Pt39n+wsCAQjSvxcMW6ILvzLtgERcfuFCoQbSLCzM8ZBaJHLJOcjugZc4S4Y+/PMwtuOCQ5HdEHdp67CD2XKnhi6/lPCy6IkmwjWoddWvk5t2ABe2mANqaw/dj3uQUd2GfYs9QJDd/nFNiItjDEBH3UfGO7EXqevxT8Oh8FlX+mkjR+AQjvbVASQHEjAAAAAElFTkSuQmCC" InformativeScreenshot="18924a3dfb65e80c7ee39d4e1dc3f868.jpg" Selector="&lt;html app='chrome.exe' title='UiPath Demo App' /&gt;" Title="UiPath Demo App" Url="https://www.rpasamples.com/suppliers" />
       </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
   </Sequence>
 </Activity>

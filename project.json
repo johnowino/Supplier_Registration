@@ -1,5 +1,6 @@
 {
   "name": "Supplier Registration",
+  "projectId": "87263dc5-2cd0-4776-864b-acc266db479e",
   "description": "Register new suppliers on a web portal",
   "main": "Main.xaml",
   "dependencies": {
@@ -43,7 +44,8 @@
       "ignoredFiles": []
     },
     "fileInfoCollection": [],
-    "modernBehavior": true
+    "modernBehavior": true,
+    "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
